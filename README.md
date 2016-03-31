@@ -22,6 +22,22 @@ var myapp = angular.module('myapp', ['wsScriptTag']);
 
 Anywhere in your code (controller, service, ...), inject `wsScriptTag` to your dependencies and use it as follows:
 
-#### wsScriptTag.insertScriptTag(url, callback)
+##### wsScriptTag.insertScriptTag(url, callback)
 
-#### wsScriptTag.loadScriptTag(url)
+###### Parameters
+- `url`: script you want to load
+- `callback`: what to do when it's loaded
+
+###### Description
+
+###### Return value
+
+##### wsScriptTag.loadScriptTag(url)
+
+###### Parameters
+- `url`: script you want to load
+
+###### Description
+
+###### Return value
+A `$q` promise.

@@ -1,4 +1,4 @@
-# wsScriptTag
+# wsScriptLoader
 
 Dynamically load scripts in your Angular code.
 

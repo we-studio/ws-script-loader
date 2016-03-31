@@ -1,0 +1,30 @@
+{
+  "generator-angularjs-gulp-library": {
+    "props": {
+      "author": {
+        "name": "Maxime Bernard",
+        "email": "mbernard@wemanity.com"
+      },
+      "libraryName": {
+        "original": "ws-script-loader",
+        "camelized": "wsScriptLoader",
+        "dasherized": "ws-script-loader",
+        "slugified": "ws-script-loader",
+        "parts": [
+          "ws",
+          "script",
+          "loader"
+        ]
+      },
+      "includeModuleDirectives": false,
+      "includeModuleFilters": false,
+      "includeModuleServices": false,
+      "includeAngularModuleResource": false,
+      "includeAngularModuleCookies": false,
+      "includeAngularModuleSanitize": false,
+      "librarySrcDirectory": "src/wsScriptLoader",
+      "libraryUnitTestDirectory": "test/unit/wsScriptLoader",
+      "libraryUnitE2eDirectory": "test/e2e/wsScriptLoader"
+    }
+  }
+}

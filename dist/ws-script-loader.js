@@ -1,7 +1,7 @@
 (function() {
 
 
-angular.module('wsScriptLoader')
+angular.module('wsScriptLoader', [])
   .service('wsScriptLoader', ["$q", function($q) {
     var service = this;
 

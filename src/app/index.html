@@ -13,8 +13,9 @@
 
     <div class="container" ng-controller="wsScriptLoaderController as ws">
       <input type="text" name="scriptName" ng-model="ws.scriptName" />
-      <p ng-bind="ws.scriptName"></p>
-      <button ng-click="ws.addScript(scriptName)">Add Script</button>
+      <br/>
+      <br/>
+      <button ng-click="ws.addScript(ws.scriptName)">Add Script</button>
     </div>
   </body>
 </html>

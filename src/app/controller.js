@@ -5,10 +5,10 @@ angular.module('wsScriptLoader')
 
       wsScriptLoaderCtrl.scriptName = "";
 
-      wsScriptLoaderCtrl.addScript = function() {
+      wsScriptLoaderCtrl.addScript = function(scriptName) {
         console.info('Inserting script...');
-        wsScriptLoader.insertScriptTag('myScript', function() {
-          console.info("Error : script already added !");
+        wsScriptLoader.insertScriptTag(scriptName, function() {
+          console.error("Error : script already added !");
         });
       };
   }]);

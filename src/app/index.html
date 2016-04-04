@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>wsScriptLoader unit test</title>
+    <script src="../../bower/angular/angular.js" type="text/javascript"></script>
+    <script src="../../bower/angular-mocks/angular-mocks.js" type="text/javascript"></script>
+    <script src="../../bower/angular-scenario/angular-scenario.js" type="text/javascript"></script>
+    <script src="../../dist/ws-script-loader.js" type="text/javascript"></script>
+    <script src="controller.js" type="text/javascript"></script>
+  </head>
+  <body ng-app="wsScriptLoader">
+
+    <div class="container" ng-controller="wsScriptLoaderController as ws">
+      <input type="text" name="scriptName" ng-model="ws.scriptName" />
+      <p ng-bind="ws.scriptName"></p>
+      <button ng-click="ws.addScript(scriptName)">Add Script</button>
+    </div>
+  </body>
+</html>

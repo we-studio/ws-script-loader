@@ -3,55 +3,70 @@
 describe('wsScriptLoaderService test', function() {
 
   var wsScriptLoader;
-  var dependencies;
-  dependencies = [];
-  var $scope, wsScriptLoaderService, mock;
+  var dependencies = [];
+  var wsScriptLoaderService;
 
   var hasModule = function(module) {
     return dependencies.indexOf(module) >= 0;
   };
 
-  beforeEach(function() {
-    // Get module
-    wsScriptLoader = angular.module('wsScriptLoader');
-    dependencies = wsScriptLoader.requires;
-  });
+  beforeEach(module('wsScriptLoader'));
 
-  beforeEach(function() {
-    mock = {alert: jasmine.createSpy()};
-    module(function($provide) {
-      $provide.value('wsScriptLoader', mock);
-    });
-
-    inject(function($injector) {
-      wsScriptLoaderService = $injector.get('wsScriptLoader');
-    });
-  });
+  beforeEach(inject(function($injector) {
+    wsScriptLoaderService = $injector.get('wsScriptLoader');
+  }));
 
   it('should load module', function() {
-    expect(hasModule('wsScriptLoader')).to.be.ok;
+    dependencies = angular.module('wsScriptLoader').requires;
+    expect(hasModule('wsScriptLoader')).toBeTruthy();
   });
 
   /*** CHECK IF METHODS ARE DEFINED ***/
 
-  it('should have insertScriptTag defined', function() {
-    // expect(wsScriptLoaderService.insertScriptTag).toBeDefined();
+  it('insertScriptTag should be defined', function() {
+    expect(wsScriptLoaderService.insertScriptTag).toBeDefined();
   });
 
-  it('should have loadScriptTag defined', function() {
-    // expect(wsScriptLoaderService.loadScriptTag).toBeDefined();
+  it('loadScriptTag should be defined', function() {
+    expect(wsScriptLoaderService.loadScriptTag).toBeDefined();
   });
 
   /*** CHECK IF METHODS WORK WELL ***/
 
   // For insertScriptTag
 
-  it('method insertScriptTag should add script node into body', function() {
-    // console.log(angular.element(document).find('script'));
+  it('method insertScriptTag should execute the callback when script have already been added !', function() {
+
+    // object created to use spies functionality
+    var data = {
+      scriptName: 'myScript',
+      callback: function() {
+        console.error('Script added !');
+      }
+    };
+    spyOn(data, 'callback'); // crate a spy to notice if the callback have been called
+    // First call
+    wsScriptLoaderService.insertScriptTag(data.scriptName, data.callback);
+    // Second call
+    wsScriptLoaderService.insertScriptTag(data.scriptName, data.callback);
+
+    expect(data.callback).toHaveBeenCalled(); // suppose to be true
   });
 
-  it('method insertScriptTag should add script node into body', function() {
+  // For loadScriptTag
 
+  it('method insertScriptTag should the promise when script have already been added !', function() {
+
+    var success = function(success) {
+      console.info('Success !');
+    };
+
+    var error = function(error) {
+      console.error('Error !');
+    };
+
+    var scriptName = 'myScript';
+    wsScriptLoaderService.loadScriptTag(scriptName).then(success, error);
   });
 
 });

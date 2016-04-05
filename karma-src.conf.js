@@ -10,7 +10,7 @@ module.exports = function(config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['mocha', 'chai-jquery', 'jquery-1.8.3', 'sinon-chai', 'jasmine'],
+    frameworks: ['jasmine', 'chai-jquery', 'jquery-1.8.3', 'sinon-chai', 'mocha'],
 
     plugins: [
       'karma-mocha',
@@ -29,7 +29,7 @@ module.exports = function(config) {
       'bower/angular/angular.js',
       'bower/angular-mocks/angular-mocks.js',
       'dist/ws-script-loader.js',
-      'test/*.js'
+      'test/*.js',
     ],
 
 

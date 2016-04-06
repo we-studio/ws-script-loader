@@ -1,14 +1,11 @@
 angular.module('wsScriptLoader')
   .controller('wsScriptLoaderController', ['wsScriptLoader', function(wsScriptLoader) {
 
-      var wsScriptLoaderCtrl = this;
+    var wsScriptLoaderCtrl = this;
 
-      wsScriptLoaderCtrl.scriptName = "";
+    wsScriptLoaderCtrl.scriptName = "";
 
-      wsScriptLoaderCtrl.addScript = function(scriptName) {
-        console.info('Inserting script...');
-        wsScriptLoader.insertScriptTag(scriptName, function() {
-          console.error("Error : script already added !");
-        });
-      };
+    wsScriptLoaderCtrl.addScript = function(scriptName) {
+      wsScriptLoader.loadScriptTag(scriptName);
+    };
   }]);

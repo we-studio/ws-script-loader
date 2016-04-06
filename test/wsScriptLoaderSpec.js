@@ -35,6 +35,44 @@ describe('wsScriptLoaderService test', function() {
 
   // For insertScriptTag
 
+  it('method insertScriptTag should add script into the DOM', function() {
+
+    var data = {
+      scriptName: 'randy',
+      callback: function() {
+        console.error('Hello !');
+      }
+    };
+
+    var element = wsScriptLoaderService.insertScriptTag(data.scriptName, data.callback);
+    var src = angular.element(element).attr('src');
+    var onload = angular.element(element).attr('onload');
+
+    expect(src).toBeDefined();
+    expect(src).toEqual('randy');
+
+    expect(onload).toBeDefined();
+    expect(onload).toEqual(data.callback);
+  });
+
+  // For loadScriptTag
+  it('method loadScriptTag should add script into the DOM', function() {
+
+    var data = {
+      scriptName: 'randy'
+    };
+
+    var element = wsScriptLoaderService.loadScriptTag(data.scriptName);
+    var src = angular.element(element).attr('src');
+    var onload = angular.element(element).attr('onload');
+
+    expect(src).toBeDefined();
+    expect(src).toEqual('randy');
+
+    expect(onload).toBeDefined();
+    expect(onload).toEqual(data.callback);
+  });
+
   it('method insertScriptTag should execute the callback when script have already been added !', function() {
 
     // object created to use spies functionality
@@ -52,21 +90,4 @@ describe('wsScriptLoaderService test', function() {
 
     expect(data.callback).toHaveBeenCalled(); // suppose to be true
   });
-
-  // For loadScriptTag
-
-  it('method insertScriptTag should the promise when script have already been added !', function() {
-
-    var success = function(success) {
-      console.info('Success !');
-    };
-
-    var error = function(error) {
-      console.error('Error !');
-    };
-
-    var scriptName = 'myScript';
-    wsScriptLoaderService.loadScriptTag(scriptName).then(success, error);
-  });
-
 });

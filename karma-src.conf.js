@@ -29,6 +29,7 @@ module.exports = function(config) {
       'bower/angular/angular.js',
       'bower/angular-mocks/angular-mocks.js',
       'dist/ws-script-loader.js',
+      'src/app/controller.js',
       'test/*.js',
     ],
 

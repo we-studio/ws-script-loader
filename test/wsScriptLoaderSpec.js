@@ -38,7 +38,7 @@ describe('wsScriptLoaderService test', function() {
   it('method insertScriptTag should add script into the DOM', function() {
 
     var data = {
-      scriptName: 'randy',
+      scriptName: 'myScript',
       callback: function() {
         console.error('Hello !');
       }
@@ -49,7 +49,7 @@ describe('wsScriptLoaderService test', function() {
     var onload = angular.element(element).attr('onload');
 
     expect(src).toBeDefined();
-    expect(src).toEqual('randy');
+    expect(src).toEqual('myScript');
 
     expect(onload).toBeDefined();
     expect(onload).toEqual(data.callback);
@@ -59,7 +59,7 @@ describe('wsScriptLoaderService test', function() {
   it('method loadScriptTag should add script into the DOM', function() {
 
     var data = {
-      scriptName: 'randy'
+      scriptName: 'myScript'
     };
 
     var element = wsScriptLoaderService.loadScriptTag(data.scriptName);
@@ -67,7 +67,7 @@ describe('wsScriptLoaderService test', function() {
     var onload = angular.element(element).attr('onload');
 
     expect(src).toBeDefined();
-    expect(src).toEqual('randy');
+    expect(src).toEqual('myScript');
 
     expect(onload).toBeDefined();
     expect(onload).toEqual(data.callback);

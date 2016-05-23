@@ -1,4 +1,4 @@
-angular.module('wsScriptLoader', [])
+angular.module('wsScriptLoader', ['wsScriptLoader'])
   .service('wsScriptLoader', function($q) {
     var service = this;
 
@@ -18,6 +18,7 @@ angular.module('wsScriptLoader', [])
         document.body.appendChild(tag);
 
         loadedScripts.push(tagUrl);
+        return tag;
       }
       else
       {
@@ -38,5 +39,5 @@ angular.module('wsScriptLoader', [])
       });
 
       return deferred.promise;
-    };    
+    };
   });

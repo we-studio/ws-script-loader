@@ -1,7 +1,7 @@
 (function() {
 
 
-angular.module('wsScriptLoader', [])
+angular.module('wsScriptLoader', ['wsScriptLoader'])
   .service('wsScriptLoader', ["$q", function($q) {
     var service = this;
 
@@ -21,6 +21,7 @@ angular.module('wsScriptLoader', [])
         document.body.appendChild(tag);
 
         loadedScripts.push(tagUrl);
+        return tag;
       }
       else
       {
@@ -36,11 +37,11 @@ angular.module('wsScriptLoader', [])
     service.loadScriptTag = function (tagUrl) {
       var deferred = $q.defer();
 
-      service.insertScriptTag(tagUrl, function () {
+      return service.insertScriptTag(tagUrl, function () {
         deferred.resolve();
       });
 
       return deferred.promise;
-    };    
+    };
   }]);
 }());

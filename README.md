@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Kangele/ws-script-loader.svg?branch=travis_setup)](https://travis-ci.org/Kangele/ws-script-loader)
+
 # wsScriptLoader
 
 Dynamically load scripts in your Angular code.
